@@ -18,6 +18,7 @@ export default  function App() {
         <Route exact path = "/photos" component={Photos}/>
 
       </Switch>
+    
       </BrowserRouter>
     </div>
   );
