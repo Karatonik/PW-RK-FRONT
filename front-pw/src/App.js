@@ -5,6 +5,7 @@ import { BrowserRouter, Switch,Route } from 'react-router-dom';
 import About from './Components/About';
 import Photos from './Components/Photos';
 import Posts from './Components/Posts';
+import AddArticle from './Components/AddArticle';
 
 export default  function App() {
   return (
@@ -16,6 +17,7 @@ export default  function App() {
         <Route exact path = "/posts" component={Posts}/>
         <Route exact path = "/aboutUs" component={About}/>
         <Route exact path = "/photos" component={Photos}/>
+        <Route exact path = "/addArticle" component={AddArticle}/>
 
       </Switch>
     

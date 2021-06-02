@@ -1,3 +1,82 @@
+@import url('http://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+
+*{
+  box-sizing: border-box;
+ 
+}
+h1,h2,h3,h4,h5,h6,label,span{
+  font-weight: 500;
+  font-family: 'Fira Sans',sans-serif;
+ 
+}
+body,html, .App, #root, .auth-wrapper{
+  width: 100%;
+  height: 100%;
+}
+
+.formBtn button{
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  width: 300px;
+  margin-left: 40%;
+}
+.formBtnL button{
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+
+}
+.form-row>.buttonW {
+
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  width: 80px;
+  height: 40px;
+  margin-top: 2.3%;
+  
+
+}
+@-webkit-keyframes fadeInOut {
+  0% {
+      opacity: 0;
+  }
+  16% {
+      opacity: 1;
+  }
+  84% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}
+@keyframes fadeInOut {
+  0% {
+      opacity: 0;
+  }
+  16% {
+      opacity: 1;
+  }
+  84% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}
+.message {
+  margin-left:-22%;
+  width: 500px;
+ 
+  opacity: 0;
+  text-align: center;
+  -webkit-animation: fadeInOut 3s;
+  animation: fadeInOut 3s;
+ 
+}
+
 body{
   background: #1C8EF9;
   background: url("./Components/back.jpg");
@@ -39,4 +118,4 @@ code {
 		color: #069;
 		border-right: 1px solid #ccc; }
 
-
+   
