@@ -5,7 +5,6 @@ import Icon from '@material-ui/core/Icon';
 import SaveIcon from '@material-ui/icons/Save';
 import RestoreFromTrashIcon from '@material-ui/icons/RestoreFromTrash';
 
-import TextField from '@material-ui/core/TextField';
 
 export default class AddArticle extends Component {
     render() {

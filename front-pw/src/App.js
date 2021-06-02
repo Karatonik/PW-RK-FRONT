@@ -6,6 +6,8 @@ import About from './Components/About';
 import Photos from './Components/Photos';
 import Posts from './Components/Posts';
 import AddArticle from './Components/AddArticle';
+import Login from './Components/Login';
+import Registration from './Components/Registration';
 
 export default  function App() {
   return (
@@ -20,7 +22,13 @@ export default  function App() {
         <Route exact path = "/addArticle" component={AddArticle}/>
 
       </Switch>
-    
+      <div className = "auth-wrapper">
+            <Switch>            
+              <Route exact path = "/login" component = {Login}/>
+              <Route exact path = "/register" component = {Registration}/>
+
+            </Switch>
+        </div>
       </BrowserRouter>
     </div>
   );

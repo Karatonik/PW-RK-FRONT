@@ -88,6 +88,7 @@ export default class Posts extends Component {
                    </Typography >
                  </CardContent>
                </Card>
+               
                </>
              );
            }
