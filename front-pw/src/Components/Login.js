@@ -13,23 +13,18 @@ export default class Login extends Component {
         const data = {
             login:this.login,
             password:this.password
-            
-        }
-        // const conf = { headers: {
-        //   'Accept': 'application/json',
-        //   'Content-Type': 'application/json' 
-        // }}
-      
-        axios.get('https://pw-page.herokuapp.com/admin/singin/',data).then(
+        };
+
+        const config ={
+            headers:{
+                'Accept' : 'application/json',
+                'Content-Type': 'application/json'
+            },
+           
+        };
+       axios.post('https://pw-page.herokuapp.com/admin/singin',data,config).then(
             res =>{
-               
-              //  var activated = res.data.activated;
-              //  localStorage.setItem('token',res.data.token);             
-              //  localStorage.setItem('email',res.data.login);
-              //  console.log(localStorage.getItem('activated'))
-               console.log(res);
-               
-              // if(activated){
+              localStorage.setItem('token',res.data);             
               this.setState({
                   loggedIn:true
                   
@@ -64,7 +59,7 @@ export default class Login extends Component {
               <div className = "form-group">
                   <label>Password</label>
                   <input type = "password" className = "form-control" placeholder = "Password"
-                //   onChange={e=>this.password=e.target.value}
+                   onChange={e=>this.password=e.target.value}
                   />
               </div>
             <div className='formBtnL'>

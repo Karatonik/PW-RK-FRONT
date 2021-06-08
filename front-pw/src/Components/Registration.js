@@ -16,10 +16,8 @@ export default class Registration extends Component {
         }
         const config ={
             headers:{
-                Authorization: 'Bearer ' + localStorage.getItem('token'),
                 'Accept' : 'application/json',
-                'Content-Type': 'application/json',
-                'Access-Control-Expose-Headers': 'Authorization'
+                'Content-Type': 'application/json'
             },
            
         };
