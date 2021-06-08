@@ -7,42 +7,47 @@ export default class Login extends Component {
     state={
         errorMessage: ''
     }
-//     handleSubmit=e=>{
-//         e.preventDefault();
+    handleSubmit=e=>{
+        e.preventDefault();
 
-//         const data = {
-//             email:this.email,
-//             password:this.password
+        const data = {
+            login:this.login,
+            password:this.password
             
-//         }
+        }
+        // const conf = { headers: {
+        //   'Accept': 'application/json',
+        //   'Content-Type': 'application/json' 
+        // }}
       
-//         axios.post('https://pai-event.herokuapp.com/api/auth/singin/',data).then(
-//             res =>{
+        axios.get('https://pw-page.herokuapp.com/admin/singin/',data).then(
+            res =>{
                
-//                var activated = res.data.activated;
-//                localStorage.setItem('token',res.data.token);             
-//                localStorage.setItem('email',res.data.email);
-//                console.log(localStorage.getItem('activated'))
-//                console.log(res);
-//               if(activated){
-//               this.setState({
-//                   loggedIn:true
+              //  var activated = res.data.activated;
+              //  localStorage.setItem('token',res.data.token);             
+              //  localStorage.setItem('email',res.data.login);
+              //  console.log(localStorage.getItem('activated'))
+               console.log(res);
+               
+              // if(activated){
+              this.setState({
+                  loggedIn:true
                   
-//               });
-//               this.props.setUser(res.data.user);
-             
-//               window.location.reload();
-//           }else{
+              });
+              // this.props.setUser(res.data.user);
+             alert('Zalogowano!')
+              // window.location.reload();
+          // }else{
           
-//               alert('Konto jeszcze nie zostało aktywowane!Sprawdź swoją skrzyńkę pocztową!');
-//           }
+          //     alert('Konto jeszcze nie zostało aktywowane!Sprawdź swoją skrzyńkę pocztową!');
+          // }
 
-//           }
-//       ).catch(err =>{
-//           alert('Email or password is incorrect!');
-//           window.location.reload();
-//       })
-//   };
+          }
+      ).catch(err =>{
+          alert('Login or password is incorrect!');
+          // window.location.reload();
+      })
+  };
     render() {
         if(this.state.loggedIn){
             return <Redirect to ={'/'}/>
@@ -51,9 +56,9 @@ export default class Login extends Component {
             <form onSubmit={this.handleSubmit}>
               <h3>Login</h3>
               <div className = "form-group">
-                  <label>Email</label>
-                  <input type = "email" className = "form-control" placeholder = "Email"
-                //   onChange={e=>this.email=e.target.value}
+                  <label>Login</label>
+                  <input type = "text" className = "form-control" placeholder = "Login"
+                   onChange={e=>this.login=e.target.value}
                   />
               </div>
               <div className = "form-group">

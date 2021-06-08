@@ -7,33 +7,40 @@ export default class Registration extends Component {
         errorMessage: '',
         successMessage:''
     }
-    // handleSubmit=e=>{
-    //     e.preventDefault();
-    //     const data ={
-    //         email:this.email,
-    //         password:this.password,
-    //         nick:this.nick,
+    handleSubmit=e=>{
+        e.preventDefault();
+        const data ={
+            login:this.login,
+            password:this.password,
      
-    //     };
-    //     axios.post('https://pai-event.herokuapp.com/api/auth/singup/',data).then(
-    //        res =>{
-    //         localStorage.setItem("status", JSON.stringify(res.data.activated));
-    //         this.setState({    
-    
-    //         });
-            
-    //         window.location.reload();
-    //            console.log(res)
-    //            alert("Zostałeś zarejestrowany! Sprawdź skrzynkę mailową!")
-    //        },
+        }
+        const config ={
+            headers:{
+                Authorization: 'Bearer ' + localStorage.getItem('token'),
+                'Accept' : 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Expose-Headers': 'Authorization'
+            },
            
-    //     ).catch(
+        };
+        axios.post('https://pw-page.herokuapp.com/admin/singup/',data,config).then(
+           res =>{
+            this.setState({    
+    
+            });
             
-    //         err=>{
-    //             alert(err.data.errors)
-    //         } 
-    //     )   
-    // }  
+            window.location.reload();
+               console.log(res)
+               alert("Zostałeś zarejestrowany!")
+           },
+           
+        ).catch(
+            
+            err=>{
+                alert(err.data.errors)
+            } 
+        )   
+    }  
     render() {       
         return (
         
@@ -43,19 +50,14 @@ export default class Registration extends Component {
               <h3>Sign Up</h3>
 
               <div className = "form-group">
-                  <label>Email</label>
-                  <input required autoComplete="off" type = "email" className = "form-control" placeholder = "Email"
-                  onChange={e=>this.email=e.target.value}/>
+                  <label>Login</label>
+                  <input required autoComplete="off" type = "text" className = "form-control" placeholder = "Login"
+                  onChange={e=>this.login=e.target.value}/>
               </div>
               <div className = "form-group">
                   <label>Password</label>
                   <input type = "password" required autoComplete="off" className = "form-control" placeholder = "Password"
                   onChange={e=>this.password=e.target.value}/>
-              </div>
-              <div className = "form-group">
-                  <label>Nick</label>
-                  <input type = "text" required autoComplete="off" className = "form-control" placeholder = "Nick"
-                  onChange={e=>this.nick=e.target.value}/>
               </div>
               <button className = "btn btn-primary btn-block">Sign Up</button>
               <button type="reset" className="btn btn-primary btn-block">Reset</button>
