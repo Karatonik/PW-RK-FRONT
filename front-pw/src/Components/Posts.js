@@ -84,7 +84,7 @@ export default class Posts extends Component {
                    Krótki opis
                    </Typography>
                    <Typography   style={{marginTop:'-2.5%',marginLeft:'70%'}} >
-                   2020 12 12 12:30
+                   2020 12 12 12:10
                    </Typography >
                  </CardContent>
                </Card>
