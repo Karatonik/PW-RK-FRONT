@@ -1,179 +1,201 @@
-@import url('http://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+@import url("http://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800");
 
-*{
+* {
   box-sizing: border-box;
- 
 }
-h1,h2,h3,h4,h5,h6,label,span{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label,
+span {
   font-weight: 500;
-  font-family: 'Fira Sans',sans-serif;
- 
+  font-family: "Fira Sans", sans-serif;
 }
 
-
-.formBtn button{
+.formBtn button {
   color: #fff;
   background-color: #007bff;
   border-color: #007bff;
   width: 300px;
   margin-left: 40%;
 }
-.formBtnL button{
+.formBtnL button {
   color: #fff;
   background-color: #007bff;
   border-color: #007bff;
-
 }
-.form-row>.buttonW {
-
+.form-row > .buttonW {
   color: #fff;
   background-color: #007bff;
   border-color: #007bff;
   width: 80px;
   height: 40px;
   margin-top: 2.3%;
-  
-
 }
 @-webkit-keyframes fadeInOut {
   0% {
-      opacity: 0;
+    opacity: 0;
   }
   16% {
-      opacity: 1;
+    opacity: 1;
   }
   84% {
-      opacity: 1;
+    opacity: 1;
   }
   100% {
-      opacity: 0;
+    opacity: 0;
   }
 }
 @keyframes fadeInOut {
   0% {
-      opacity: 0;
+    opacity: 0;
   }
   16% {
-      opacity: 1;
+    opacity: 1;
   }
   84% {
-      opacity: 1;
+    opacity: 1;
   }
   100% {
-      opacity: 0;
+    opacity: 0;
   }
 }
 
-
-body{
-  background: #1C8EF9;
+body {
+  background: #1c8ef9;
   background: url("./Components/back.jpg");
   min-height: 100vh;
   display: flex;
   font-weight: 400;
-  font-family: 'Fira Sans',sans-serif;
-
-  
+  font-family: "Fira Sans", sans-serif;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 /* navbar */
+
+#navL {
+  width:1900px;
+  margin-left: 1000px;
+  float: left;
+  margin: 0 0 3em 0;
+  padding: 0;
+  list-style: none;
+  margin-top: -280px;
+}
+#navL li {
+  float: left;
+}
+
+#navL li a {
+  display: block;
+  padding: 8px 15px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #069;
+  border-right: 1px solid #ccc;
+}
+
+#navL li a {
+  display: block;
+  padding: 8px 15px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #069;
+  border-right: 1px solid #ccc;
+}
 #nav {
   width: 100%;
-  margin-left:1000px;
-	float: left;
-	margin: 0 0 3em 0;
-	padding: 0;
-	list-style: none; }
+  margin-left: 1000px;
+  float: left;
+  margin: 0 0 3em 0;
+  padding: 0;
+  list-style: none;
+}
 #nav li {
   float: left;
- }
+}
 
 #nav li a {
-		display: block;
-		padding: 8px 15px;
-		text-decoration: none;
-		font-weight: bold;
-		color: #069;
-    border-right: 1px solid #ccc; 
-  }
+  display: block;
+  padding: 8px 15px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #069;
+  border-right: 1px solid #ccc;
+}
 
 #nav li a {
-		display: block;
-		padding: 8px 15px;
-		text-decoration: none;
-		font-weight: bold;
-		color: #069;
-    border-right: 1px solid #ccc;
-   }
+  display: block;
+  padding: 8px 15px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #069;
+  border-right: 1px solid #ccc;
+}
 
-.auth-wrapper{
+.auth-wrapper {
   margin-left: -3%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  
-  .auth-wrapper form {
-    margin:auto;
-    width: 450px;
-  
-  
-    background: #fff;
-    box-shadow: 0px 14px 80px rgba(34,35,58,0.2);
-    padding: 40px 55px 45px 55px;
-    border-radius: 15px;
-    transition: all .3s;
-  }
-  
-  .auth-wrapper .form-control:focus{
-    border-color: #167bff;
-    box-shadow: none;
-  }
-  
-  
-  .formBtn button{
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
-    width: 300px;
-    margin-left: 40%;
-  }
-  .formBtnL button{
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
-  
-  }
-  
-  .auth-wrapper h3{
-    text-align: center;
-    margin: 0;
-    line-height: 1;
-    padding-bottom: 20px;
-  }
-  
-  .custom-control-lavel{
-    font-weight: 400;
-  }
-  
-  .forgot-password,
-  .forgot-password a{
-    text-align: right;
-    font-size: 13px;
-    padding-top: 10px;
-    color: #7f7d7d;
-    margin: 0;
-  }
-  
-  .forgot-password a{
-    color: #167bff;
-  }
-  
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
 
+.auth-wrapper form {
+  margin: auto;
+  width: 450px;
 
+  background: #fff;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  padding: 40px 55px 45px 55px;
+  border-radius: 15px;
+  transition: all 0.3s;
+}
+
+.auth-wrapper .form-control:focus {
+  border-color: #167bff;
+  box-shadow: none;
+}
+
+.formBtn button {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  width: 300px;
+  margin-left: 40%;
+}
+.formBtnL button {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.auth-wrapper h3 {
+  text-align: center;
+  margin: 0;
+  line-height: 1;
+  padding-bottom: 20px;
+}
+
+.custom-control-lavel {
+  font-weight: 400;
+}
+
+.forgot-password,
+.forgot-password a {
+  text-align: right;
+  font-size: 13px;
+  padding-top: 10px;
+  color: #7f7d7d;
+  margin: 0;
+}
+
+.forgot-password a {
+  color: #167bff;
+}

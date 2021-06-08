@@ -29,9 +29,10 @@ export default class Login extends Component {
                   loggedIn:true
                   
               });
+              localStorage.setItem('logged',true); 
               // this.props.setUser(res.data.user);
              alert('Zalogowano!')
-              // window.location.reload();
+             window.location.reload();
           // }else{
           
           //     alert('Konto jeszcze nie zostało aktywowane!Sprawdź swoją skrzyńkę pocztową!');
