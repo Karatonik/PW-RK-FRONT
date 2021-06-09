@@ -20,17 +20,17 @@ export default class AddArticle extends Component {
       headers: {
          Authorization: 'Bearer ' +localStorage.getItem('token'),
         'Accept' : 'application/json',
-        'Access-Control-Expose-Headers': 'Authorization',
-        'Access-Control-Allow-Origin' : 'http://localhost:3000',
-        'Access-Control-Allow-Methods' : 'POST'
+        'Access-Control-Expose-Headers': 'Authorization'
+        //'Access-Control-Allow-Origin' : 'http://localhost:3000',
+        //'Access-Control-Allow-Methods' : 'POST'
       },
     };
     axios
       .post(
-        "https://pw-page.herokuapp.com/admin/title/header/text",config)
+        "https://pw-page.herokuapp.com/admin",data,config)
       .then((res) => {
-        console.log("Current token: ",localStorage.getItem('token'));
-        console.log("text is: ", data.text);
+        //console.log("Current token: ",localStorage.getItem('token'));
+        //console.log("text is: ", data.text);
         this.setState({});
         console.log(res);
         alert("Article created succeffully!");
@@ -42,7 +42,37 @@ export default class AddArticle extends Component {
         });
       });
   };
+  updateArticle = event =>{
+    event.preventDefault();
+    const article = {
+        title:this.title,
+        header:this.header,
+        text:this.text
+    };
+    const config = {
+      headers: {
+         Authorization: 'Bearer ' +localStorage.getItem('token'),
+        'Accept' : 'application/json',
+        'Access-Control-Expose-Headers': 'Authorization'
+        //'Access-Control-Allow-Origin' : 'http://localhost:3000',
+        //'Access-Control-Allow-Methods' : 'POST'
+      },
+    };
+    const id= this.props.match.params.id
+    axios.put('https://pw-page.herokuapp.com/admin/'+id,article,config).then(
+      response=>{
+        if(response.data!=null){
+          this.setState({})
+          alert("Article updated succeffully!");
+          return this.props.history.push("/posts");
+        }else{
+          console.log("Nie udało się edytować")
+        }
+      }
+    )
+  }
   render() {
+
     return (
       <Card
         style={{

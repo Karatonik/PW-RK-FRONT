@@ -1,94 +1,118 @@
 import React, { Component } from 'react';
-import {Card,} from 'react-bootstrap'
+import {Card,Button,Form} from 'react-bootstrap'
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-
+import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 export default class Posts extends Component {
+  constructor(props){
+    super(props);
+
+    this.state = {
+     // title: String,
+     // header: String,
+      //text: String,
+      articles: []
+}
+  }
+state={}
+
+
+ getRealtimeData =(data)=> {
+  this.setState({
+      text : data.text
+     });
+}
+
+
+  componentDidMount = ()=> {
+    function eleContainsInArray(arr,element){
+      
+      if(arr != null && arr.length >0){
+          for(var i=0;i<arr.length;i++){
+              if(arr[i].id === element.id){
+                  return true;
+              }
+          }
+      }
+      return false;
+   } 
+    
+    
+    const source = new EventSource('https://pw-page.herokuapp.com/api/All');
+    source.onmessage = (e) => {
+        const data = JSON.parse(e.data);
+        if(!eleContainsInArray(this.state.articles,data)){
+        this.setState({
+          articles : this.state.articles.concat(data),
+         });
+        }else{
+         source.close();
+        }
+   }
+ 
+  
+
+}
+
+deleteArticle=(id)=>{ 
+    
+  axios.delete("https://pw-page.herokuapp.com/admin/"+id)
+  .then(res=>{
+     
+          this.setState({
+              articles:this.state.articles.filter(article => article.articleId !== id)
+
+          });
+          window.location.reload();
+          console.log(res)
+      
+     
+  });
+};
+
+
+
+setArticles = articles =>{
+  this.setState({
+    articles:articles
+  });
+};
+
     render() {
+      const {articles} = this.state;
           return (
             <>
-            <Card style={{overflow:'auto',borderWidth:0,width:'900px',left:'430px',top:'80px',position:'relative',backgroundColor:'#D0FFC8',margin:'5%'}} >
+             { 
+        articles.map((article)=>( 
+         
+            <Card style={{overflow:'auto',borderWidth:0,width:'900px',left:'430px',top:'40px',position:'relative',backgroundColor:'#ebccff',margin:'5%',height:'150px'}} >
+             
                <CardHeader
-                    style={{marginLeft:'-70%'}}                 
-                   title= 'Tytuł artykułu'
+                    style={{marginLeft:'-80%',fontSize:'32px',color:'white'}}                 
+                   title= {article.title}
                  />
                     <CardHeader
-                    style={{marginTop:'-7%',marginLeft:'75%'}}
+                    style={{marginTop:'-7%',marginLeft:'75%',color:'white'}}
                  
-                 title= 'Data'
+                 title= {article.localDateTime.slice(0, article.localDateTime.lastIndexOf("T"))}
                />
                  <CardContent>
-                   <Typography  style={{marginLeft:'-79%'}} >
-                   Krótki opis
-                   </Typography>
-                   <Typography   style={{marginTop:'-2.5%',marginLeft:'70%'}} >
-                   2020 12 12 12:30
+                   <Typography   style={{marginTop:'-8%',marginLeft:'2%',fontSize:'26px',color:'white'}} >
+                   {article.header}
                    </Typography >
                  </CardContent>
+                 < Link to={"article/"+article.id }style={{width:'100px',marginLeft:'75%'}} className= "btn btn-sm btn-outline-primary"> Show</Link>{' '}       
+                  <Button style={{width:'100px',marginTop:'-31px',marginLeft:'87%'}} className= "btn btn-sm btn-outline-danger" variant="contained" color="secondary" onClick={this.deleteArticle.bind(this,article.id)}>
+                    Delete
+                  </Button>
+                  <Link to={"edit/"+article.id } style={{width:'100px',marginTop:'-31px',marginLeft:'63%'}} className= "btn btn-sm btn-outline-info">Edit</Link>{' '}
                </Card>
-
-               <Card style={{overflow:'auto',borderWidth:0,width:'900px',left:'430px',top:'80px',position:'relative',backgroundColor:'#D0FFC8',margin:'5%'}} >
-               <CardHeader
-                    style={{marginLeft:'-70%'}}                 
-                   title= 'Tytuł artykułu'
-                 />
-                    <CardHeader
-                    style={{marginTop:'-7%',marginLeft:'75%'}}
-                 
-                 title= 'Data'
-               />
-                 <CardContent>
-                   <Typography  style={{marginLeft:'-79%'}} >
-                   Krótki opis
-                   </Typography>
-                   <Typography   style={{marginTop:'-2.5%',marginLeft:'70%'}} >
-                   2020 12 12 12:30
-                   </Typography >
-                 </CardContent>
-               </Card>
-
+                ))
+      } 
               
-               <Card style={{overflow:'auto',borderWidth:0,width:'900px',left:'430px',top:'80px',position:'relative',backgroundColor:'#D0FFC8',margin:'5%'}} >
-               <CardHeader
-                    style={{marginLeft:'-70%'}}                 
-                   title= 'Tytuł artykułu'
-                 />
-                    <CardHeader
-                    style={{marginTop:'-7%',marginLeft:'75%'}}
-                 
-                 title= 'Data'
-               />
-                 <CardContent>
-                   <Typography  style={{marginLeft:'-79%'}} >
-                   Krótki opis
-                   </Typography>
-                   <Typography   style={{marginTop:'-2.5%',marginLeft:'70%'}} >
-                   2020 12 12 12:30
-                   </Typography >
-                 </CardContent>
-               </Card>
-               <Card style={{overflow:'auto',borderWidth:0,width:'900px',left:'430px',top:'80px',position:'relative',backgroundColor:'#D0FFC8',margin:'5%'}} >
-               <CardHeader
-                    style={{marginLeft:'-70%'}}                 
-                   title= 'Tytuł artykułu'
-                 />
-                    <CardHeader
-                    style={{marginTop:'-7%',marginLeft:'75%'}}
-                 
-                 title= 'Data'
-               />
-                 <CardContent>
-                   <Typography  style={{marginLeft:'-79%'}} >
-                   Krótki opis
-                   </Typography>
-                   <Typography   style={{marginTop:'-2.5%',marginLeft:'70%'}} >
-                   2020 12 12 12:10
-                   </Typography >
-                 </CardContent>
-               </Card>
-               
                </>
              );
            }
