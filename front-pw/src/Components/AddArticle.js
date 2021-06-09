@@ -76,7 +76,7 @@ export default class AddArticle extends Component {
     return (
       <Card
         style={{
-          backgroundColor: "#D0FFC8",
+          backgroundColor: "#339933",
           width: "800px",
           marginLeft: "32%",
           marginTop:'2%'
@@ -123,14 +123,14 @@ export default class AddArticle extends Component {
                 />
               </Form.Group>
               <Button
-                style={{ marginRight: "6px", marginTop: "4%" }}
+                style={{ marginRight: "6px", marginTop: "4%" ,marginLeft:'1%'}}
                 size="sm"
                 className="buttonW"
                 variant="success"
                 type="submit"
                 onSubmit={this.handleSubmit}
               >
-                <Icon component={SaveIcon} />
+                <Icon component={SaveIcon}/>
                 Save
               </Button>{" "}
               <Button

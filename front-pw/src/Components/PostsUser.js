@@ -70,7 +70,7 @@ setArticles = articles =>{
             <>
              { 
         articles.map((article)=>( 
-            <Card style={{overflow:'auto',borderWidth:0,width:'900px',left:'500px',top:'40px',position:'relative',backgroundColor:'#ebccff',margin:'5%',height:'150px'}} >
+            <Card style={{overflow:'auto',borderWidth:0,width:'900px',left:'400px',top:'40px',position:'relative',backgroundColor:'#339933',margin:'5%',height:'150px'}} >
               
                <CardHeader
                     style={{marginLeft:'-80%',fontSize:'32px',color:'white'}}                 

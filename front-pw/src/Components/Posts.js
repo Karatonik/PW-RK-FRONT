@@ -88,7 +88,7 @@ setArticles = articles =>{
              { 
         articles.map((article)=>( 
          
-            <Card style={{overflow:'auto',borderWidth:0,width:'900px',left:'430px',top:'40px',position:'relative',backgroundColor:'#ebccff',margin:'5%',height:'150px'}} >
+            <Card style={{overflow:'auto',borderWidth:0,width:'900px',left:'400px',top:'40px',position:'relative',backgroundColor:'#339933',margin:'5%',height:'150px'}} >
              
                <CardHeader
                     style={{marginLeft:'-80%',fontSize:'32px',color:'white'}}                 
@@ -104,11 +104,11 @@ setArticles = articles =>{
                    {article.header}
                    </Typography >
                  </CardContent>
-                 < Link to={"article/"+article.id }style={{width:'100px',marginLeft:'75%'}} className= "btn btn-sm btn-outline-primary"> Show</Link>{' '}       
-                  <Button style={{width:'100px',marginTop:'-31px',marginLeft:'87%'}} className= "btn btn-sm btn-outline-danger" variant="contained" color="secondary" onClick={this.deleteArticle.bind(this,article.id)}>
+                 < Link to={"article/"+article.id }style={{width:'100px',marginLeft:'75%'}} className= "btn btn-sm btn-primary"> Show</Link>{' '}       
+                  <Button style={{width:'100px',marginTop:'-31px',marginLeft:'87%'}} className= "btn btn-sm btn-danger" variant="contained" color="secondary" onClick={this.deleteArticle.bind(this,article.id)}>
                     Delete
                   </Button>
-                  <Link to={"edit/"+article.id } style={{width:'100px',marginTop:'-31px',marginLeft:'63%'}} className= "btn btn-sm btn-outline-info">Edit</Link>{' '}
+                  <Link to={"edit/"+article.id } style={{width:'100px',marginTop:'-31px',marginLeft:'63%'}} className= "btn btn-sm btn-info">Edit</Link>{' '}
                </Card>
                 ))
       } 
