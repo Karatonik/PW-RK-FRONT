@@ -7,7 +7,40 @@ import RestoreFromTrashIcon from "@material-ui/icons/RestoreFromTrash";
 import axios from "axios";
 
 export default class UpdateArticle extends Component {
-    state={};
+    state={
+      selectedFile: null
+    };
+
+
+    onFileChange = event => { 
+      this.setState({ selectedFile: event.target.files[0] }); 
+     // console.log(this.state.selectedFile);
+    }; 
+
+    onFileUpload = () => { 
+      const id= this.props.match.params.id
+      const formData = new FormData(); 
+      formData.append("fileParts",this.state.selectedFile);
+
+      console.log(this.state.selectedFile);
+
+      const config = {
+        headers: {
+           Authorization: 'Bearer ' +localStorage.getItem('token'),
+          'Accept' : 'application/json',
+          'Access-Control-Expose-Headers': 'Authorization'
+        },
+      };
+      axios.post('https://pw-page.herokuapp.com/admin/img/'+id,formData,config).then(
+          res=>{
+            if(res.data.id===id){
+              alert("Adding was successful !!! , You can add another");
+            }else{
+              alert("Adding failed");
+            }
+          }
+        )
+    }
     updateArticle = event =>{
         event.preventDefault();
         const article = {
@@ -39,6 +72,7 @@ export default class UpdateArticle extends Component {
       }
     render() {
         return (
+          <div>
             <Card
               style={{
                 backgroundColor: "#D0FFC8",
@@ -47,9 +81,10 @@ export default class UpdateArticle extends Component {
                 marginTop:'2%'
               }}
             >
+              
               <Card.Header>
                 <Icon component={AddBoxIcon} style={{ marginLeft: "-90%" }} />
-                Add article
+                Edit article
               </Card.Header>
               <Form onSubmit={this.updateArticle }>
                 <Card.Body>
@@ -112,6 +147,43 @@ export default class UpdateArticle extends Component {
                 </Card.Body>
               </Form>
             </Card>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <Card
+              style={{
+                backgroundColor: "#D0FFC8",
+                width: "800px",
+                marginLeft: "32%",
+                marginTop:'2%'
+              }}
+            >
+              
+              <Card.Header>
+                <Icon component={AddBoxIcon} style={{ marginLeft: "-90%" }} />
+                Add photo
+              </Card.Header>
+              <Card.Body>
+              <input type="file" onChange={this.onFileChange} />
+              <button onClick={this.onFileUpload}> 
+                  Upload! 
+                </button> 
+              </Card.Body>
+            </Card>
+
+            </div>
           );
         }
       }

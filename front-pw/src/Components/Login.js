@@ -66,9 +66,6 @@ export default class Login extends Component {
             <div className='formBtnL'>
               <button className = "btn btn-primary btn-block">Login</button>
               <button type="reset" className="btn btn-primary btn-block">Reset</button>
-              <p className = "forgot-password text-right">
-                    <Link to ={'/forgot'}>Forgot password?</Link>
-              </p>
               </div>
           </form>
         );

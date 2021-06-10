@@ -65,7 +65,7 @@ export default class MyGoogleMap extends Component {
 
                 loadingElement={<div style={{ height: `100%` }} />}
 
-                containerElement={<div style={{ height: `600px`,marginTop:'-50%',width:'800px',marginLeft:'60%'}} />}
+                containerElement={<div style={{ height: `600px`,marginTop:'5%',width:'800px',marginLeft:'31%'}} />}
 
                 mapElement={<div style={{ height: `100%` }} />}
 

@@ -86,7 +86,7 @@ setArticles = articles =>{
                    {article.header}
                    </Typography >
                  </CardContent>
-                 < Link to={"article/"+article.id }style={{width:'100px',marginLeft:'85%'}} className= "btn btn-sm btn-outline-primary"> Show</Link>{' '}       
+                 < Link to={"article/"+article.id }style={{width:'100px',marginLeft:'85%'}} className= "btn btn-sm btn-primary"> Show</Link>{' '}       
                </Card>
                 ))
       } 
